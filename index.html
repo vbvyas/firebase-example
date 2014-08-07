@@ -8,6 +8,14 @@
     <input type='text' id='msg' placeholder='Message'>
     <script>
       var ref = new Firebase('https://cwmrmv8n8gs.firebaseio-demo.com/');
+      $('#msg').keypress(function (e){
+          if (e.keyCode == 13) {
+            var name = $('#name').val();
+            var msg = $('#msg').val();
+            ref.push({ name: name, message: msg });
+            $('#msg').val('');
+          }
+      });
     </script>
   </body>
 </html>
